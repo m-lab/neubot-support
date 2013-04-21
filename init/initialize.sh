@@ -45,8 +45,8 @@ if [ -f neubot.tar.gz ]; then
     echo "install new neubot"
     /home/mlab_neubot/neubot/M-Lab/install.sh
 
-    echo "cleanup"
-    rm -rf neubot.tar.gz
+    #echo "cleanup"
+    #rm -rf neubot.tar.gz
 
 else
     echo "FATAL: neubot.tar.gz missing" 1>&2
