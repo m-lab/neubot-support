@@ -35,6 +35,8 @@ for NODE in $*; do
         $DEBUG mlab_ssh $NODE sudo init/initialize.sh || true
         $DEBUG mlab_ssh $NODE sudo init/start.sh || true
 
+        $DEBUG mlab_ssh $NODE rm $RPM
+
         echo "=== END DEPLOY $NODE ==="
         echo ""
         echo ""
