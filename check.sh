@@ -14,7 +14,7 @@ for NODE in $*; do
 
         cd neubot
 
-        ./bin/neubot dash -A $NODE -f
+        ./UNIX/bin/neubot dash -A $NODE -f
 
         echo "=== CHECK DEPLOY $NODE ==="
         echo ""
