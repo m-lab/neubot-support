@@ -22,6 +22,8 @@ for NODE in $*; do
 
         $DEBUG mlab_scp $RPM $NODE:
 
+        $DEBUG mlab_ssh $NODE sudo init/stop.sh || true
+
         # Note: avoid sliver recreation
         $DEBUG mlab_ssh $NODE sudo rm -f /etc/mlab/slice.installed
 
@@ -30,7 +32,6 @@ for NODE in $*; do
         # Idempotent
         $DEBUG mlab_ssh $NODE sudo touch /etc/mlab/slice.installed
 
-        $DEBUG mlab_ssh $NODE sudo init/stop.sh || true
         $DEBUG mlab_ssh $NODE sudo init/initialize.sh || true
         $DEBUG mlab_ssh $NODE sudo init/start.sh || true
 
