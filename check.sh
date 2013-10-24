@@ -37,7 +37,7 @@ for SLIVER in $*; do
         echo ""
         echo ""
 
-        echo "=== CHECK DEPLOY $SLIVER ==="
+        echo "=== END CHECK $SLIVER ==="
         echo ""
         echo ""
     )
