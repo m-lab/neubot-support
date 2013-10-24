@@ -12,9 +12,30 @@ for NODE in $*; do
         set -e
         echo "=== BEGIN CHECK $NODE ==="
 
+        echo ""
+        echo ""
+
         cd neubot
 
+        ./UNIX/bin/neubot bittorrent -A $NODE -f
+
+        echo ""
+        echo ""
+
         ./UNIX/bin/neubot dash -A $NODE -f
+
+        echo ""
+        echo ""
+
+        ./UNIX/bin/neubot raw -A $NODE -f
+
+        echo ""
+        echo ""
+
+        ./UNIX/bin/neubot speedtest -A $NODE -f
+
+        echo ""
+        echo ""
 
         echo "=== CHECK DEPLOY $NODE ==="
         echo ""
