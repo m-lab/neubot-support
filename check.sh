@@ -7,37 +7,37 @@
 
 DEBUG=
 
-for NODE in $*; do
+for SLIVER in $*; do
     (
         set -e
-        echo "=== BEGIN CHECK $NODE ==="
+        echo "=== BEGIN CHECK $SLIVER ==="
 
         echo ""
         echo ""
 
         cd neubot
 
-        ./UNIX/bin/neubot bittorrent -A $NODE -f
+        ./UNIX/bin/neubot bittorrent -A $SLIVER -f
 
         echo ""
         echo ""
 
-        ./UNIX/bin/neubot dash -A $NODE -f
+        ./UNIX/bin/neubot dash -A $SLIVER -f
 
         echo ""
         echo ""
 
-        ./UNIX/bin/neubot raw -A $NODE -f
+        ./UNIX/bin/neubot raw -A $SLIVER -f
 
         echo ""
         echo ""
 
-        ./UNIX/bin/neubot speedtest -A $NODE -f
+        ./UNIX/bin/neubot speedtest -A $SLIVER -f
 
         echo ""
         echo ""
 
-        echo "=== CHECK DEPLOY $NODE ==="
+        echo "=== CHECK DEPLOY $SLIVER ==="
         echo ""
         echo ""
     )

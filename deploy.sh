@@ -15,32 +15,32 @@ fi
 RPM=$1
 shift
 
-for NODE in $*; do
-    echo "=== BEGIN DEPLOY $NODE ==="
+for SLIVER in $*; do
+    echo "=== BEGIN DEPLOY $SLIVER ==="
 
     (
         set -e
 
-        $DEBUG mlab_scp $RPM $NODE:
+        $DEBUG mlab_scp $RPM $SLIVER:
 
-        $DEBUG mlab_ssh $NODE sudo init/stop.sh || true
+        $DEBUG mlab_ssh $SLIVER sudo init/stop.sh || true
 
         # Note: avoid sliver recreation
-        $DEBUG mlab_ssh $NODE sudo rm -f /etc/mlab/slice.installed
+        $DEBUG mlab_ssh $SLIVER sudo rm -f /etc/mlab/slice.installed
 
-        $DEBUG mlab_ssh $NODE sudo yum -y update $RPM
+        $DEBUG mlab_ssh $SLIVER sudo yum -y update $RPM
 
         # Idempotent
-        $DEBUG mlab_ssh $NODE sudo touch /etc/mlab/slice.installed
+        $DEBUG mlab_ssh $SLIVER sudo touch /etc/mlab/slice.installed
 
-        $DEBUG mlab_ssh $NODE sudo init/initialize.sh || true
-        $DEBUG mlab_ssh $NODE sudo init/start.sh || true
+        $DEBUG mlab_ssh $SLIVER sudo init/initialize.sh || true
+        $DEBUG mlab_ssh $SLIVER sudo init/start.sh || true
 
-        $DEBUG mlab_ssh $NODE rm $RPM
+        $DEBUG mlab_ssh $SLIVER rm $RPM
 
     )
 
-    echo "=== END DEPLOY $NODE ==="
+    echo "=== END DEPLOY $SLIVER ==="
     echo ""
     echo ""
 
