@@ -16,9 +16,10 @@ RPM=$1
 shift
 
 for NODE in $*; do
+    echo "=== BEGIN DEPLOY $NODE ==="
+
     (
         set -e
-        echo "=== BEGIN DEPLOY $NODE ==="
 
         $DEBUG mlab_scp $RPM $NODE:
 
@@ -37,10 +38,11 @@ for NODE in $*; do
 
         $DEBUG mlab_ssh $NODE rm $RPM
 
-        echo "=== END DEPLOY $NODE ==="
-        echo ""
-        echo ""
     )
+
+    echo "=== END DEPLOY $NODE ==="
+    echo ""
+    echo ""
 
     sleep 30
 done
