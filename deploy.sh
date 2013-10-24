@@ -41,4 +41,6 @@ for NODE in $*; do
         echo ""
         echo ""
     )
+
+    sleep 30
 done
