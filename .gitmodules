@@ -3,4 +3,4 @@
 	url = https://github.com/neubot/neubot.git
 [submodule "package"]
 	path = package
-	url = https://github.com/m-lab-tools/package.git
+	url = https://github.com/m-lab/package.git
