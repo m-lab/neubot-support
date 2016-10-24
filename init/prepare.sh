@@ -35,6 +35,9 @@ if [ -z "$BUILD_DIR" ] ; then
     exit 1
 fi
 
+echo "Source dir: $SOURCE_DIR"
+echo "Build dir: $BUILD_DIR"
+
 if test -d $BUILD_DIR ; then
     rm -rf $BUILD_DIR/*
 fi
