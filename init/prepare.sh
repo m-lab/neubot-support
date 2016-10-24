@@ -76,7 +76,7 @@ for file in initialize.sh start.sh stop.sh ; do
     install -D -m 0755 $SOURCE_DIR/init/$file $BUILD_DIR/init/$file
 done
 #install $SOURCE_DIR/initialize.sh start.sh stop.sh $BUILD_DIR/init
-cp $SOURCE_DIR/neubot/dist/mlab/* $BUILD_DIR
+cp $SOURCE_DIR/neubot-server/dist/mlab/* $BUILD_DIR
 
 #
 # Use '*' rather than '.' because we don't want to include the current

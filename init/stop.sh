@@ -29,4 +29,4 @@
 #
 
 DEBUG=
-$DEBUG /home/mlab_neubot/neubot/M-Lab/stop.sh
+$DEBUG /home/mlab_neubot/neubot-server/M-Lab/stop.sh

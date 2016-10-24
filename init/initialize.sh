@@ -34,16 +34,16 @@ cd /home/mlab_neubot
 
 if [ -f neubot.tar.gz ]; then 
 
-    if [ -x /home/mlab_neubot/neubot/M-Lab/uninstall.sh ]; then
+    if [ -x /home/mlab_neubot/neubot-server/M-Lab/uninstall.sh ]; then
         echo "uninstall previous neubot"
-        /home/mlab_neubot/neubot/M-Lab/uninstall.sh
+        /home/mlab_neubot/neubot-server/M-Lab/uninstall.sh
     fi
 
     echo "extract new neubot"
     tar -xzf neubot.tar.gz
 
     echo "install new neubot"
-    /home/mlab_neubot/neubot/M-Lab/install.sh
+    /home/mlab_neubot/neubot-server/M-Lab/install.sh
 
     #echo "cleanup"
     #rm -rf neubot.tar.gz
