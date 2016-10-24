@@ -1,3 +1,6 @@
 [submodule "package"]
 	path = package
 	url = https://github.com/m-lab/package.git
+[submodule "neubot-server"]
+	path = neubot-server
+	url = https://github.com/neubot/neubot-server
