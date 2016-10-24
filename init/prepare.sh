@@ -38,6 +38,11 @@ fi
 echo "Source dir: $SOURCE_DIR"
 echo "Build dir: $BUILD_DIR"
 
+if test -d $BUILD_DIR ; then
+    rm -rf $BUILD_DIR/*
+fi
+
+
 #if [ $# -gt 1 ]; then
 #    echo "usage: $0 [branch]" 1>&2
 #    exit 1
