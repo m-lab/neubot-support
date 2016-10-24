@@ -56,11 +56,11 @@ fi
 umask 022  # Override possibly-stricter user umask
 #echo "NOTICE: preparing release from ${REMOTEBRANCH}'s HEAD"
 
-GITDIR=neubot
+GITDIR=neubot-server
 
 pushd $SOURCE_DIR/$GITDIR
     DESTDIR=dist/mlab
-    TARBALL=$DESTDIR/neubot.tar.gz
+    TARBALL=$DESTDIR/neubot-server.tar.gz
     VERSION=$DESTDIR/version
 
     rm -rf -- $DESTDIR
@@ -68,7 +68,7 @@ pushd $SOURCE_DIR/$GITDIR
     #git fetch origin
     #git checkout $REMOTEBRANCH
     #git reset --hard origin/$REMOTEBRANCH
-    git archive --format=tar --prefix=neubot/ HEAD|gzip -9 > $TARBALL
+    git archive --format=tar --prefix=neubot-server/ HEAD|gzip -9 > $TARBALL
     git describe --tags > $VERSION
 popd
 
