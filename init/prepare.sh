@@ -59,11 +59,11 @@ fi
 umask 022  # Override possibly-stricter user umask
 #echo "NOTICE: preparing release from ${REMOTEBRANCH}'s HEAD"
 
-GITDIR=neubot-server
+GITDIR=neubot
 
 pushd $SOURCE_DIR/$GITDIR
     DESTDIR=dist/mlab
-    TARBALL=$DESTDIR/neubot-server.tar.gz
+    TARBALL=$DESTDIR/neubot.tar.gz
     VERSION=$DESTDIR/version
 
     rm -rf -- $DESTDIR
@@ -71,7 +71,7 @@ pushd $SOURCE_DIR/$GITDIR
     #git fetch origin
     #git checkout $REMOTEBRANCH
     #git reset --hard origin/$REMOTEBRANCH
-    git archive --format=tar --prefix=neubot-server/ HEAD|gzip -9 > $TARBALL
+    git archive --format=tar --prefix=neubot/ HEAD|gzip -9 > $TARBALL
     git describe --tags > $VERSION
 popd
 
@@ -79,7 +79,7 @@ for file in initialize.sh start.sh stop.sh ; do
     install -D -m 0755 $SOURCE_DIR/init/$file $BUILD_DIR/init/$file
 done
 #install $SOURCE_DIR/initialize.sh start.sh stop.sh $BUILD_DIR/init
-cp $SOURCE_DIR/neubot-server/dist/mlab/* $BUILD_DIR
+cp $SOURCE_DIR/neubot/dist/mlab/* $BUILD_DIR
 
 #
 # Use '*' rather than '.' because we don't want to include the current

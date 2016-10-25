@@ -32,24 +32,24 @@ fi
 
 cd /home/mlab_neubot
 
-if [ -f neubot-server.tar.gz ]; then
+if [ -f neubot.tar.gz ]; then
 
-    if [ -x /home/mlab_neubot/neubot-server/M-Lab/uninstall.sh ]; then
+    if [ -x /home/mlab_neubot/neubot/M-Lab/uninstall.sh ]; then
         echo "uninstall previous neubot"
-        /home/mlab_neubot/neubot-server/M-Lab/uninstall.sh
+        /home/mlab_neubot/neubot/M-Lab/uninstall.sh
     fi
 
     echo "extract new neubot"
-    tar -xzf neubot-server.tar.gz
+    tar -xzf neubot.tar.gz
 
     echo "install new neubot"
-    /home/mlab_neubot/neubot-server/M-Lab/install.sh
+    /home/mlab_neubot/neubot/M-Lab/install.sh
 
     # Note: would be wrong to cleanup because tarball is installed by the RPM
     #echo "cleanup"
-    #rm -rf neubot-server.tar.gz
+    #rm -rf neubot.tar.gz
 
 else
-    echo "FATAL: neubot-server.tar.gz missing" 1>&2
+    echo "FATAL: neubot.tar.gz missing" 1>&2
     exit 1
 fi
