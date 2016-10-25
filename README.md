@@ -17,25 +17,28 @@ yum --disablerepo=epel groupinstall -y 'Development tools'
 
 ```
 cd /tmp
+rm -rf mlab-neubot-support
 git clone --recursive -b develop https://github.com/neubot/mlab-neubot-support.git
 ```
 
 ### Run the slicebuild.sh script
 
 ```
-cd neubot-support
+cd mlab-neubot-support
+git tag
+git checkout $tag # very important to make the RPM package
 ./package/slicebuild.sh mlab_neubot
-find . -type f -name \*.rpm
+find /tmp -type f -name \*.rpm
 # scp the generated rpm from that sliver to your machine
 ```
 
 ### Test the new RPM
 
-You need to scp the RPM to another testing sliver (e.g. a good sliver for
-that could be neubot.mlab.mlab1.nuq0t.measurement-lab.org).
+You can use the `deploy.sh` script to test the RPM to another testing sliver
+(e.g. neubot.mlab.mlab1.nuq0t.measurement-lab.org).
 
-Then, install the rpm
+Run:
 
 ```
-sudo rpm -i $rpm_file_path
+./deploy.sh $rpm neubot.mlab.mlab1.nuq0t.measurement-lab.org
 ```
