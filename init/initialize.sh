@@ -40,7 +40,7 @@ if [ -f neubot-server.tar.gz ]; then
     fi
 
     echo "extract new neubot"
-    tar -xzf neubot.tar.gz
+    tar -xzf neubot-server.tar.gz
 
     echo "install new neubot"
     /home/mlab_neubot/neubot-server/M-Lab/install.sh
@@ -50,6 +50,6 @@ if [ -f neubot-server.tar.gz ]; then
     #rm -rf neubot-server.tar.gz
 
 else
-    echo "FATAL: neubot.tar.gz missing" 1>&2
+    echo "FATAL: neubot-server.tar.gz missing" 1>&2
     exit 1
 fi
