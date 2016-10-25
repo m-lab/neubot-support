@@ -35,6 +35,9 @@ if [ -z "$BUILD_DIR" ] ; then
     exit 1
 fi
 
+echo "Source dir: $SOURCE_DIR"
+echo "Build dir: $BUILD_DIR"
+
 if test -d $BUILD_DIR ; then
     rm -rf $BUILD_DIR/*
 fi
@@ -56,7 +59,7 @@ fi
 umask 022  # Override possibly-stricter user umask
 #echo "NOTICE: preparing release from ${REMOTEBRANCH}'s HEAD"
 
-GITDIR=neubot
+GITDIR=neubot-server
 
 pushd $SOURCE_DIR/$GITDIR
     DESTDIR=dist/mlab
@@ -76,7 +79,7 @@ for file in initialize.sh start.sh stop.sh ; do
     install -D -m 0755 $SOURCE_DIR/init/$file $BUILD_DIR/init/$file
 done
 #install $SOURCE_DIR/initialize.sh start.sh stop.sh $BUILD_DIR/init
-cp $SOURCE_DIR/neubot/dist/mlab/* $BUILD_DIR
+cp $SOURCE_DIR/$GITDIR/dist/mlab/* $BUILD_DIR
 
 #
 # Use '*' rather than '.' because we don't want to include the current
