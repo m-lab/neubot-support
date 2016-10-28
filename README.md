@@ -10,7 +10,7 @@ neubot.mlab.mlab4.prg01.measurement-lab.org), then:
 ### Install development tools
 
 ```
-yum --disablerepo=epel groupinstall -y 'Development tools'
+sudo yum --disablerepo=epel groupinstall -y 'Development tools'
 ```
 
 ### Clone the repository
