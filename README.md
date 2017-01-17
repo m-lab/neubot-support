@@ -2,6 +2,16 @@
 
 Support scripts for Neubot on M-Lab.
 
+## Update to latest neubot-server
+
+```
+cd neubot-server
+git checkout mlab
+git pull
+cd ..
+git commit -am "Update to latest neubot-server"
+```
+
 ## Build RPM from development branch
 
 Login on a development machine (e.g.
