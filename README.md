@@ -52,3 +52,13 @@ Run:
 ```
 ./deploy.sh $rpm neubot.mlab.mlab1.nuq0t.measurement-lab.org
 ```
+
+### Check list for testing
+
+- [ ] deploy on a testing machine
+- [ ] test using `./test.sh`
+- [ ] make sure test results are written on disk and parse as JSON
+- [ ] make sure rsync and syslog are running on the sliver
+- [ ] make sure the memory usage of neubot and botticelli is reasonable
+- [ ] both are running under the expected non privileged user
+- [ ] data is being collected from the sliver
