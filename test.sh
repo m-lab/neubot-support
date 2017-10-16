@@ -53,7 +53,11 @@ child() {
         )
         (
             cd measurement-kit
-            ./measurement_kit ndt -vT download -T download-ext $test_server
+            ./measurement_kit ndt -T download -T download-ext $test_server
+        )
+        (
+            cd measurement-kit
+            ./measurement_kit dash $test_server
         )
     done
 }
