@@ -18,7 +18,7 @@ clone() {
 }
 
 clone "neubot/neubot" "0.4.16.9"
-clone "measurement-kit/measurement-kit" "stable"
+clone "measurement-kit/measurement-kit" "v0.10.0"
 
 # This assumes you have installed MK dependencies (libevent-dev, libssl-dev,
 # and libgeoip-dev), you have a C++11 compiler etc.
@@ -53,12 +53,15 @@ child() {
         )
         (
             cd measurement-kit
-            ./measurement_kit ndt -T download -T download-ext $test_server
+            ./measurement_kit ndt -T download -T download-ext -p 3007 $test_server
         )
         (
             cd measurement-kit
             ./measurement_kit dash $test_server
         )
+        if [ -f .STOP ]; then
+          exit 0
+        fi
     done
 }
 
